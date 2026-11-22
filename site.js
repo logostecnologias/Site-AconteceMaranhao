@@ -37,7 +37,7 @@ const GOOGLE_G='<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335"
 /* Links externos */
 /* Redes do Acontece Maranhão: YouTube, WhatsApp, Telegram, Instagram e X (links tirados do site atual; Telegram ainda sem endereço) */
 const WA_CANAL='https://whatsapp.com/channel/0029VaEszsV5vKAHEeERpi0s';
-const SOCIAL=[['youtube','YouTube','https://www.youtube.com/@podaconteceroficial'],['whatsapp','WhatsApp',WA_CANAL],['telegram','Telegram',''],['instagram','Instagram','https://www.instagram.com/acontece_maranhao/'],['x','X','https://x.com/acontece_ma']];
+const SOCIAL=[['youtube','YouTube','https://www.youtube.com/@podaconteceroficial'],['whatsapp','WhatsApp',WA_CANAL],['telegram','Telegram','https://t.me/acontecemaranhao2'],['instagram','Instagram','https://www.instagram.com/acontece_maranhao/'],['x','X','https://x.com/acontece_ma']];
 const socLinks=()=>SOCIAL.filter(x=>x[2]).map(([k,n,h])=>`<a href="${h}"${h[0]==='#'?' data-tg':' target="_blank" rel="noopener"'} aria-label="${n} do Acontece Maranhão">${icon(k)}</a>`).join('');
 const YT_POD='https://www.youtube.com/@podaconteceroficial';
 const GOOGLE_FOLLOW='https://www.google.com/preferences/source?q=acontecemaranhao.com.br';
@@ -47,7 +47,7 @@ const ls={get:k=>{try{return localStorage.getItem(k)}catch(_){return null}},set:
 const ss={get:k=>{try{return sessionStorage.getItem(k)}catch(_){return null}},set:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(_){}}};
 
 /* Dicas por categoria */
-const DICAS_CAT=[{s:'lazer',n:'Lazer'},{s:'alimentacao',n:'Alimentação'},{s:'saude',n:'Saúde'},{s:'servicos',n:'Serviços'},{s:'concursos',n:'Concursos e empregos'},{s:'dinheiro',n:'Dinheiro'}];
+const DICAS_CAT=[{s:'lazer',n:'Lazer'},{s:'alimentacao',n:'Alimentação'},{s:'compras',n:'Compras'},{s:'servicos',n:'Serviços'},{s:'beleza',n:'Beleza e bem-estar'},{s:'dinheiro',n:'Dinheiro'}];
 const DICAS=[
  ['lazer','O que fazer no fim de semana na Grande Ilha','Shows, feiras e programação gratuita.'],
  ['lazer','As praias mais tranquilas de São Luís para ir com crianças','Onde a maré ajuda e tem estrutura.'],
@@ -55,15 +55,15 @@ const DICAS=[
  ['alimentacao','Onde comer arroz de cuxá de verdade em São Luís','Restaurantes e quiosques indicados por leitores.'],
  ['alimentacao','Feiras livres da capital: dias, horários e o que comprar','Da Praia Grande ao João Paulo.'],
  ['alimentacao','Juçara: como escolher e conservar a fruta da época','Dicas para não errar na compra.'],
- ['saude','Onde se vacinar contra a gripe em São Luís','Postos, horários e documentos.'],
- ['saude','Como marcar consulta pelo SUS sem sair de casa','O passo a passo no aplicativo e no telefone.'],
- ['saude','Calor forte: cuidados com crianças e idosos','Hidratação e sinais de alerta.'],
+ ['compras','Lojas com entrega no mesmo dia na Grande Ilha','Roupas, eletrônicos e presentes sem sair de casa.'],
+ ['compras','Black Friday: onde encontrar desconto de verdade em São Luís','Lojas participantes e como comparar preços.'],
+ ['compras','Onde comprar roupa de festa junina em São Luís','Do tecido de chita ao chapéu de vaqueiro.'],
  ['servicos','Como emitir a segunda via de documentos em São Luís','O passo a passo no Viva e no gov.br.'],
  ['servicos','Como pedir tapa-buraco ou troca de lâmpada na sua rua','Os canais da prefeitura que funcionam.'],
  ['servicos','Título de eleitor: como regularizar antes do prazo','O que dá para fazer pelo e-Título.'],
- ['concursos','Concursos com inscrições abertas no Maranhão','Prazos, salários e onde se inscrever.'],
- ['concursos','Vagas do Sine em São Luís esta semana','Quais são e como se candidatar.'],
- ['concursos','Como montar um currículo que passa na triagem','Erros comuns e um modelo pronto.'],
+ ['beleza','Salões de São Luís que atendem aos domingos','Corte, unha e escova no fim de semana.'],
+ ['beleza','Academias com aula experimental grátis na capital','Musculação, funcional e dança.'],
+ ['beleza','Clínicas de estética com avaliação gratuita','O que perguntar antes de fechar um pacote.'],
  ['dinheiro','Como consultar o IPVA 2027 e as datas de pagamento','Valores, descontos e calendário por placa.'],
  ['dinheiro','Calendário do Bolsa Família no Maranhão','As datas de pagamento pelo final do NIS.'],
  ['dinheiro','Golpe do Pix: como se proteger e o que fazer se cair','O passo a passo junto ao banco.']
@@ -177,7 +177,7 @@ function shareRow(p){
 const gFollow=stack=>`<aside class="gfollow${stack?' stack':''}" aria-label="Seguir no Google"><img src="logo-acontece-maranhao-quadrada.svg" alt="Acontece Maranhão"><p>Siga o Acontece Maranhão no Google e receba as principais notícias do Maranhão</p><a class="gbtn" href="${GOOGLE_FOLLOW}" target="_blank" rel="noopener">${GOOGLE_G}Seguir no Google</a></aside>`;
 /* Banner fixo do YouTube: foto do canal + títulos dos episódios passando (vídeos reais do canal @podaconteceroficial) */
 const EPS=[
- [null,'Episódio','Leonardo Arruda: Lahesio Bonfim, idade do suplente e polêmica sobre posse no Senado','19/11'],
+ ['uHXkSYhRvyk','Episódio','Leonardo Arruda: Lahesio Bonfim, idade do suplente e polêmica sobre posse no Senado','19/11'],
  ['H6tADX82gDs','Episódio','Felipe Camarão: bastidores da campanha, relação com Brandão, Braide, Lula e futuro político','09/11'],
  ['v04MoxOPwkQ','Programa','Governo de transição, Famem e eleições da Assembleia Legislativa','07/11'],
  ['UH-aAiiEiS4','Corte','De olho em Brasília! Os próximos passos de Eliziane Gama, Fufuca e Camarão','30/10'],
@@ -226,8 +226,9 @@ function related(p,n){
 function leia(list){return `<aside class="leia" aria-label="Leia também"><b>Leia também</b>${list.map(x=>`<a href="${url(x)}">${ph(x)}<div><span class="chap">${esc(chap(x))}</span><h3 class="hl">${esc(x.title)}</h3></div></a>`).join('')}</aside>`}
 function rank(ids){return `<div><h2 class="side-h">Mais lidas</h2><div class="rank lim">${ids.map(byId).filter(Boolean).map(x=>`<a href="${url(x)}">${ph(x)}<h3 class="hl">${esc(x.title)}</h3></a>`).join('')}</div>${verTodas()}</div>`}
 /* Espaços de banner desligados por enquanto. Para voltar, troque BANNERS para true. */
-const BANNERS=false;
-const ad=(cls,dim)=>BANNERS?`<div class="ad ${cls}" role="img" aria-label="Espaço de publicidade"><div><b>Publicidade</b>${dim}</div></div>`:'';
+const BANNERS=true;
+const VT={'ad-rect':'vt-q','ad-rect2':'vt-q','ad-tall':'vt-v','ad-bill':'vt-h'};
+const ad=(cls,dim)=>BANNERS?`<a class="vt vt-livre ${VT[cls]}" href="https://wa.me/5598987884948?text=${encodeURIComponent('Olá! Quero anunciar no Acontece Maranhão (espaço '+dim+').')}" target="_blank" rel="noopener"><div><b>Anuncie aqui</b><span>${dim}</span><em>Fale no WhatsApp</em></div></a>`:'';
 const MAIS_LIDAS=[61488,63478,7174,73382,72118];
 
 /* ---------- home ---------- */
@@ -249,13 +250,14 @@ function home(){
  return `
  <section class="top-grid" aria-label="Destaques">
   <a class="manchete" href="${url(man)}">${ph(man)}<div class="txt"><span class="chap">${esc(chap(man))}</span><h1 class="hl">${esc(man.title)}</h1><p>${esc(fina(man))}</p></div></a>
-  <div class="subs">${subs.map(s=>`<a class="sub" href="${url(s)}">${ph(s)}<div><span class="chap">${esc(chap(s))}</span><h3 class="hl">${esc(s.title)}</h3></div></a>`).join('')}</div>
+  <div class="top-side"><div class="subs">${subs.map(s=>`<a class="sub" href="${url(s)}">${ph(s)}<div><span class="chap">${esc(chap(s))}</span><h3 class="hl">${esc(s.title)}</h3></div></a>`).join('')}</div><div class="top-ad so-desk">${ad('ad-rect','300 × 250')}</div></div>
  </section>
  <div class="row2">
   <section id="ultimas"><div class="sec-h"><h2>Últimas notícias</h2><a class="more" href="index.html?ultimas=1">Ver todas</a></div>
    <div class="ult lim">${ult.map(x=>ultItem(x,hora(x.date),dia(x.date),chap(x))).join('')}</div>${verTodas()}</section>
-  <div class="side-col">${ad('ad-rect','300 × 250')}${gFollow(true)}</div>
+  <div class="side-col so-desk">${ad('ad-tall','300 × 600')}</div>
  </div>
+ ${ad('ad-bill','970 × 250')}
  <section class="sec" id="colunistas"><div class="tarja"><h2>Colunistas</h2><button class="more" type="button" data-mega="colunistas">Ver todas</button></div>
   <div class="cols lim">${COLUNISTAS.slice(0,4).map(c=>`<a class="colun" href="index.html?coluna=${c.s}"><div class="who"><span class="av" style="background:${c.cor}">${ini(c.n)}</span><div><b>${c.n}</b><span>${c.c}</span></div></div><h3 class="hl">${c.t}</h3></a>`).join('')}</div>${verTodas()}</section>
  <section class="sec" id="politica"><div class="tarja"><h2>Política</h2><a class="more" href="index.html?cat=politica">Ver todas</a></div>
@@ -266,8 +268,8 @@ function home(){
   <div class="grid4 lim">${cid.slice(0,4).map(x=>`<a class="card" href="${url(x)}">${ph(x)}<span class="chap">${esc(chap(x))}</span><h3 class="hl">${esc(x.title)}</h3></a>`).join('')}</div>${verTodas()}</section>
  <section class="dark" id="podcast"><div>
   <div class="tarja"><h2>Podcast</h2><a class="more" href="${YT_POD}" target="_blank" rel="noopener">Ver todos</a></div>
-  <div class="pod"><a class="pod-cover" href="${YT_POD}" target="_blank" rel="noopener"><i style="width:320px;height:320px;right:-120px;top:-120px"></i><i style="width:200px;height:200px;right:-60px;top:-60px"></i><b>Pod<br>Acontecer</b><span>A política do Maranhão em conversa.</span></a>
-   <div><div class="eps lim">${EPS.slice(0,4).map(([id,tp,t,d])=>`<a href="${ytVid(id)}" target="_blank" rel="noopener"><span class="play">${icon('play')}</span><div><span class="gray">${tp}</span><h3>${esc(t)}</h3></div><span class="gray">${d}</span></a>`).join('')}</div>${verTodas()}</div></div>
+  <div class="pod"><a class="pod-cover" href="${YT_POD}" target="_blank" rel="noopener" aria-label="Pod Acontecer no YouTube"><img src="img/pod-acontecer-logo.jpg" alt="Pod Acontecer" loading="lazy"></a>
+   <div><div class="eps lim">${EPS.slice(0,4).map(([id,tp,t,d])=>`<a href="${ytVid(id)}" target="_blank" rel="noopener"><span class="ep-capa"><img src="${id?`https://i.ytimg.com/vi/${id}/mqdefault.jpg`:'img/pod-acontecer-logo.jpg'}" alt="" loading="lazy"><span class="play">${icon('play')}</span></span><div><span class="gray">${tp}</span><h3>${esc(t)}</h3></div><span class="gray">${d}</span></a>`).join('')}</div>${verTodas()}</div></div>
  </div></section>
  <section class="sec" id="dicas"><div class="tarja"><h2>Dicas</h2><button class="more" type="button" data-mega="dicas">Categorias</button></div>
   <div class="dtabs" role="tablist" aria-label="Categorias de dicas"><button type="button" role="tab" aria-selected="true" data-dcat="">Todas</button>${DICAS_CAT.map(c=>`<button type="button" role="tab" aria-selected="false" data-dcat="${c.s}">${c.n}</button>`).join('')}</div>
@@ -312,7 +314,7 @@ function dicaItem(n){
     <div class="byline"><span class="av">R</span><div><b>Por Redação Acontece Maranhão</b><span>Publicado em ${dataLonga(P[0].date)}</span></div></div>
     <div class="share-top">${shareRow(p)}</div></header>
    <div class="body"><p>${esc(d)} Texto de exemplo da dica: no site, a redação escreve a dica completa no painel, em Dicas.</p>${convite()}
-    <div class="end-share">${shareRow(p)}</div>${gFollow()}</div>
+    <div class="end-share">${shareRow(p)}</div></div>
   </article>
   <aside class="aside">${ad('ad-rect','300 × 250')}${rank(MAIS_LIDAS.slice(0,5))}</aside>
  </div>
@@ -339,11 +341,12 @@ function buscaPage(q){
   :`<p style="margin-top:20px;font-size:18px">Nada encontrado para "${esc(q)}". Tente outra palavra, um nome ou uma cidade.</p>`}`;
 }
 /* Páginas institucionais (o tema cria estas páginas ao ser ativado) */
+const fale=t=>`<div class="fale"><p class="fale-t">${t}</p><a class="fale-wa" href="https://wa.me/5598987884948" target="_blank" rel="noopener">${icon('whatsapp')}Chamar no WhatsApp</a><p class="fale-tel">ou ligue: <a href="tel:+5598987884948">(98) 98788-4948</a></p></div>`;
 const PAGINAS={
- contato:['Contato','<p>Fale com a redação do Acontece Maranhão: envie sugestões de pauta, correções e informações.</p>'],
- anuncie:['Anuncie','<p>Anuncie no Acontece Maranhão e fale com quem acompanha a política e as cidades do Maranhão todos os dias, no site, no canal do WhatsApp e no YouTube do Pod Acontecer.</p><p>Formatos: banners no site, publicidade nos vídeos do Pod Acontecer e conteúdo de marca.</p><p>Para receber a tabela de preços, <a href="index.html?pagina=contato">fale com a gente</a>.</p>'],
- expediente:['Expediente','<p><strong>Acontece Maranhão</strong><br>Uma empresa do Acontece Group.</p><p>Redação: São Luís (MA).</p><p>Contato com a redação: <a href="index.html?pagina=contato">página de contato</a>.</p>'],
- privacidade:['Política de privacidade','<p>Esta página explica quais dados o Acontece Maranhão coleta, para que usa e quais são os seus direitos, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p><h2>Dados que coletamos</h2><ul><li><strong>Cadastro para receber notícias:</strong> nome, e-mail e número de WhatsApp, quando você preenche o formulário do site.</li><li><strong>Newsletter:</strong> o e-mail informado para receber a newsletter do site ou de uma coluna.</li><li><strong>Navegação:</strong> dados de uso coletados por cookies de medição de audiência (Google Analytics) e de publicidade (Google AdSense).</li></ul><h2>Para que usamos</h2><ul><li>Enviar as notícias e newsletters que você pediu, por e-mail e WhatsApp.</li><li>Medir a audiência e melhorar o site.</li><li>Exibir publicidade, que ajuda a manter o site gratuito.</li></ul><p>Não vendemos nem compartilhamos seus dados de cadastro com terceiros. Para evitar mostrar o formulário de novo a quem já se cadastrou, guardamos uma versão codificada do endereço de internet (IP), que não permite identificar você.</p><h2>Seus direitos</h2><p>Você pode, a qualquer momento, pedir acesso, correção ou exclusão dos seus dados e deixar de receber nossos envios. Cada e-mail da newsletter tem um link para sair da lista. Para os demais pedidos, use a <a href="index.html?pagina=contato">página de contato</a>.</p><h2>Cookies</h2><p>Você pode bloquear ou apagar cookies nas configurações do seu navegador. Alguns recursos do site podem deixar de funcionar.</p>']
+ contato:['Contato','<p>Fale com a redação do Acontece Maranhão: envie sugestões de pauta, correções e informações.</p>'+fale('Fale com o Acontece Maranhão')],
+ anuncie:['Anuncie','<p>Anuncie no Acontece Maranhão e fale com quem acompanha a política e as cidades do Maranhão todos os dias, no site, no canal do WhatsApp e no YouTube do Pod Acontecer.</p><p>Formatos: banners no site, publicidade nos vídeos do Pod Acontecer e conteúdo de marca.</p><p>Para receber a tabela de preços, fale com a gente:</p>'+fale('Anuncie no Acontece Maranhão')],
+ expediente:['Expediente','<p><strong>Acontece Maranhão</strong><br>Uma empresa do Acontece Group.</p><p>Redação: São Luís (MA).</p>'+fale('Contato com a redação')],
+ privacidade:['Política de privacidade','<p>Esta página explica quais dados o Acontece Maranhão coleta, para que usa e quais são os seus direitos, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p><h2>Dados que coletamos</h2><ul><li><strong>Cadastro para receber notícias:</strong> nome, e-mail e número de WhatsApp, quando você preenche o formulário do site.</li><li><strong>Newsletter:</strong> o e-mail informado para receber a newsletter do site ou de uma coluna.</li><li><strong>Navegação:</strong> dados de uso coletados por cookies de medição de audiência (Google Analytics).</li></ul><h2>Para que usamos</h2><ul><li>Enviar as notícias e newsletters que você pediu, por e-mail e WhatsApp.</li><li>Medir a audiência e melhorar o site.</li><li>Exibir a publicidade dos nossos anunciantes, que ajuda a manter o site gratuito.</li></ul><p>Não vendemos nem compartilhamos seus dados de cadastro com terceiros. Para evitar mostrar o formulário de novo a quem já se cadastrou, guardamos uma versão codificada do endereço de internet (IP), que não permite identificar você.</p><h2>Seus direitos</h2><p>Você pode, a qualquer momento, pedir acesso, correção ou exclusão dos seus dados e deixar de receber nossos envios. Cada e-mail da newsletter tem um link para sair da lista. Para os demais pedidos, fale com a gente pelo <a href="https://wa.me/5598987884948" target="_blank" rel="noopener">WhatsApp (98) 98788-4948</a>.</p><h2>Cookies</h2><p>Você pode bloquear ou apagar cookies nas configurações do seu navegador. Alguns recursos do site podem deixar de funcionar.</p>']
 };
 function paginaPage(k){
  const [t,h]=PAGINAS[k]||PAGINAS.contato;
@@ -384,7 +387,6 @@ function materia(){
    <div class="body">${body}
     <div class="tags"><b>Assuntos</b>${p.cidade?`<a href="index.html?cidade=${encodeURIComponent(p.cidade)}">${esc(p.cidade)}</a>`:''}${POL_IDS.includes(p.id)?'<a href="index.html?cat=politica">Política</a>':''}<a href="index.html?ultimas=1">Maranhão</a></div>
     <div class="end-share">${shareRow(p)}</div>
-    ${gFollow()}
    </div>
   </article>
   <aside class="aside">${ad('ad-rect','300 × 250')}${rank(MAIS_LIDAS.filter(x=>x!==p.id).slice(0,5))}${ad('ad-tall','300 × 600')}</aside>
@@ -505,3 +507,7 @@ document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|textarea/i.test(
  let i=0;const ag=$('#agora');
  setInterval(()=>{i=(i+1)%4;const x=P[i];ag.style.opacity=0;setTimeout(()=>{ag.textContent=x.title;ag.href=url(x);$('#agoraT').textContent=hora(x.date);ag.style.opacity=1},300)},6000);
 })();
+
+/* Quadrado ao lado da manchete: se não couber inteiro, some (nunca empurra a página). */
+function ajustaTopAd(){document.querySelectorAll('.top-side').forEach(s=>{const a=s.querySelector('.top-ad');if(!a)return;a.style.display='';if(s.scrollHeight>s.clientHeight+1)a.style.display='none'})}
+window.addEventListener('load',ajustaTopAd);window.addEventListener('resize',ajustaTopAd);setTimeout(ajustaTopAd,300);

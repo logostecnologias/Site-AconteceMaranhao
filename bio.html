@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bio - Acontece Maranhão</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#CE0108">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="bio-pg">
+<main class="bio">
+ <span class="bio-av"><img src="logo-acontece-maranhao-quadrada.svg" alt="Acontece Maranhão"></span>
+ <h1>Acontece Maranhão</h1>
+ <p>O portal de notícias mais acessado do MARANHÃO!</p>
+ <nav class="bio-redes" id="bio-redes" aria-label="Redes sociais do Acontece Maranhão"></nav>
+ <nav class="bio-links" id="bio-links" aria-label="Links do Acontece Maranhão"></nav>
+ <section class="bio-ult" id="bio-ult"><h2>Últimas notícias</h2></section>
+ <p class="bio-foot">© 2026 Acontece Maranhão</p>
+</main>
+<script src="data.js"></script>
+<script>
+const IC={
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+ whatsapp:'<path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path d="M8.9 8.3c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.1-.2.3-.1.5.3.6.8 1.3 1.4 1.8.7.6 1.3.9 1.9 1.1.2.1.4 0 .5-.1l.7-.8c.2-.2.3-.2.6-.1l1.7.8c.3.1.4.2.4.4 0 .4-.1 1-.4 1.3-.4.5-1.2.9-1.9.9-.8 0-2.3-.4-4-1.9-1.6-1.4-2.6-3.2-2.8-3.8-.3-.8-.2-1.9.2-2.5z" fill="currentColor" stroke="none"/>',
+ instagram:'<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>',
+ facebook:'<path d="M13.5 21v-7.5h2.6l.4-3.1h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.2c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7.8v3.1h2.6V21z" fill="currentColor" stroke="none"/>',
+ x:'<path d="M4 4h4.2l11.8 16h-4.2z" fill="currentColor" stroke="none"/><path d="M19.5 4 13 11.3M4.5 20l6.6-7.4"/>',
+ telegram:'<path d="M20.5 4.2 3.6 10.8c-.9.4-.9 1.1 0 1.4l4.3 1.4 1.6 5c.2.6.6.7 1 .3l2.4-2.2 4.6 3.4c.6.4 1.1.2 1.3-.6l2.9-13.7c.2-1.1-.4-1.6-1.2-1.3z"/><path d="m8 13.5 9-6"/>',
+ linkedin:'<rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.8v.1M11.5 16v-3.2c0-1.4.9-2.3 2-2.3s2 .8 2 2.3V16M11.5 10.5V16"/>',
+ link:'<path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1 1"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1-1"/>',
+ youtube:'<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>',
+ play:'<path d="M7 4.5v15l12-7.5z" fill="currentColor" stroke="none"/>',
+ menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
+ close:'<path d="M6 6l12 12M18 6 6 18"/>',
+ mail:'<rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/>',
+ yt:'<rect x="1.5" y="5" width="21" height="14" rx="4.5" fill="#FF0000" stroke="none"/><path d="m10 9 5.2 3-5.2 3z" fill="#fff" stroke="none"/>'
+};
+const icon=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+const wa=t=>'https://wa.me/5598987884948?text='+encodeURIComponent(t);
+IC.megafone='<path d="M3.5 10.5v3a1 1 0 0 0 1 1H7l6 4.5v-14L7 9.5H4.5a1 1 0 0 0-1 1z"/><path d="M16.5 9a4.2 4.2 0 0 1 0 6"/><path d="M19.2 6.5a8 8 0 0 1 0 11"/>';IC.denuncia='<path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="M12 8.5v4.5"/><path d="M12 16.3v.2"/>';
+const R=[
+ ['https://whatsapp.com/channel/0029VaEszsV5vKAHEeERpi0s','whatsapp','Canal do WhatsApp'],
+ ['https://t.me/acontecemaranhao2','telegram','Canal do Telegram'],
+ ['https://www.youtube.com/@podaconteceroficial','youtube','Pod Acontecer no YouTube'],
+ ['https://www.instagram.com/acontece_maranhao/','instagram','Instagram'],
+ ['https://x.com/acontece_ma','x','X']
+];
+const L=[
+ ['index.html','link','Notícias no site','acontecemaranhao.com.br','dest'],
+ [wa('Olá! Quero anunciar no Acontece Maranhão.'),'megafone','Anuncie no Acontece','Fale com a nossa equipe comercial'],
+ [wa('Olá! Gostaria de fazer uma denúncia anônima.'),'denuncia','Faça uma denúncia anônima','Sem se identificar, pelo nosso contato']
+];
+document.getElementById('bio-redes').innerHTML=R.map(([h,i,t])=>`<a href="${h}" target="_blank" rel="noopener" aria-label="${t}" title="${t}">${icon(i)}</a>`).join('');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('bio-links').innerHTML=L.map(([h,i,t,s,c])=>`<a class="${c||''}" href="${h}"${i==='link'?'':' target="_blank" rel="noopener"'}>${icon(i)}<span>${esc(t)}<small>${esc(s)}</small></span></a>`).join('');
+const P=(window.POSTS||[]).slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,3);
+document.getElementById('bio-ult').insertAdjacentHTML('beforeend',P.map(p=>`<a href="materia.html?id=${p.id}">${p.img?`<img src="${p.img}" alt="" loading="lazy">`:''}<span>${esc(p.title)}</span></a>`).join(''));
+</script>
+</body>
+</html>
